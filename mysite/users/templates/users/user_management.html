@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>User Management</title>
+
+</head>
+<body>
+
+{% block content %}
+
+{#    <h3 id="theTitle" class="h3  font-weight-normal mx-auto pt-2"#}
+{#            style="width: 20%;">{{ request.user.username }}User Management </h3>#}
+{#    <div style="height: 800px">fill 800px</div>#}
+        <h5 id="theTitle" class="h5  font-weight-normal pt-2 mx-auto"
+            style="width: 30%;"> <span style="font-family:fantasy">[&nbsp;{{ request.user.username }}&nbsp;]&nbsp;&nbsp;User Management</span></h5>
+    <div style="height: 800px">
+        <div style="font-family:fantasy">
+            <button id="profile_button">User Profile</button>&nbsp;&nbsp;&nbsp;
+{#            <button id="sub" style="font-family:fantasy">My Subscription</button>&nbsp;&nbsp;&nbsp;#}
+            {% if editor_flag %}
+                <button id="manage_button">Sneaker Management</button>&nbsp;&nbsp;&nbsp;
+                <button id="post_button">Sneaker Post</button>
+            {% endif %}
+        </div>
+        <br>
+        <div id="data_div" style="height: 500px">
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+{% block scriptBlock %}
+<script type="text/javascript" src="{% static  "users/users.js" %}"></script>
+{% endblock %}
+
+</body>
+</html>

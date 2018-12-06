@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Sneaker Post management</title>
+</head>
+<body>
+
+{% block content %}
+
+    <h3 id="theTitle" class="h3  font-weight-normal mx-auto pt-2"
+            style="width: 35%;">Editor Management</h3>
+{#    <hr>#}
+    <div>
+        <table>
+        <tr class='list-header'>
+            <td width='10%' ><b>ID</b></td>
+            <td width='50%'><b>SneakerName</b></td>
+            <td width='5%'><b>Option1</b></td>
+            <td width='5%'><b>Option2</b></td>
+        </tr>
+
+        {% for sneaker in sneakers %}
+            <tr>
+                <td width='10%' >{{ sneaker.sneakerID }}</td>
+                <td width='50%'><a href="/sneakers/{{ sneaker.sneakerID }}/" title="{{ sneaker.title }}">{{ sneaker.title }}</a></td>
+                <td width='5%'>
+                    <a href="{% url 'editsneaker' %}?id={{sneaker.sneakerID}}">Edit</a>
+                </td>
+                <td width='5%'>
+                      <a href="{% url 'delsneaker' %}?id={{sneaker.sneakerID}}">Delete</a>
+                </td>
+            </tr>
+
+{#            <div class="col-md-4">#}
+{#                        <div>#}
+{#                            <a href="/sneakers/{{ sneaker.sneakerID }}/"><img class="img-fluid" src="/media/{{ sneaker.image }}" alt="shoes image" /></a>#}
+{#                        </div>#}
+{#                        <p class="text-center mb-0">#}
+{#                            <a href="/sneakers/{{ sneaker.sneakerID }}/" title="{{ sneaker.title }}">{{ sneaker.title }}</a>#}
+{#                        </p>#}
+{#                        <p class="text-center mb-0">#}
+{#                            <a>Release Date:{{ sneaker.sneakerReleaseDate }}</a>#}
+{#                        </p>#}
+{#            <a href="{% url 'editsneaker' %}?id={{sneaker.sneakerID}}">Edit</a> |#}
+{#            <a href="{% url 'delsneaker' %}?id={{sneaker.sneakerID}}">Delete</a><br>#}
+{#            </div>#}
+
+{#            <tr>#}
+{#                <td width='20%'>{{sneaker.sneakerID}}</td>#}
+{#                <td width='50%'><a href="{% url 'sneakers' %}{{sneaker.sneakerID}}">{{sneaker.title}}</a></td>#}
+{#            </tr> #}
+
+        {% endfor %}
+        </table>
+
+    </div>
+{% endblock %}
+
+{% block scriptBlock %}
+{#    <script type="text/javascript" src="{% static  "/viewall/viewall.js" %}"></script>#}
+{% endblock %}
+
+</body>
+</html>

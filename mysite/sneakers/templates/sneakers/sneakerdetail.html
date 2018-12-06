@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>ViewAll</title>
+</head>
+<body>
+
+{% block content %}
+
+    <h3 id="theTitle" class="h3  font-weight-normal mx-auto pt-2"
+            style="width: 80%; text-align: center">{{ sneaker.title}}</h3>
+
+    <div class="mx-auto" style="width: 80%; height: 800px; text-align: center">
+{#    ![]({{sneaker.image.url}})#}
+        <img  class="mx-auto" src="{{sneaker.image.url}}" alt="sneaker"
+              style="text-align: center"
+        />
+        <br>
+
+        <form action="/sneakers/subscribe/{{ sneaker.sneakerID }}" method="POST">
+                        {% csrf_token %}
+
+                            {{ form.as_p }}
+
+                            <input type="submit" value="{{subscribe_info}}"/>
+        </form>
+        <br>
+        <div class="mx-auto" style="width: 60%; text-align: left">{{sneaker.body}}
+        </div>
+        <hr>
+        <div class="mx-auto" style="width: 60%; text-align: left">
+            <p style="font-weight: bold;font-size: 30px"> Release on:<a>{{sneaker.sneakerReleaseDate}}</a></p>
+            <p style="font-weight: bold;font-size: 20px">Retail price:{{sneaker.price}}</p>
+            <p style="">Style code:{{sneaker.stylecode}}</p>
+            <p style="">Color:{{sneaker.color}}</p>
+            <hr>
+<!--        <h4 class="h3  font-weight-normal mx-auto pt-2"
+            style="width: 80%; text-align: center">Purchase information</h4> -->
+            <p style="width: 60%; text-align: left">Buy this pair at:<br>
+                <a  href="{{sneaker.url}}">{{sneaker.store}}</a>
+            </p>
+            {% if sneaker.storeimage %}
+            <a  href="{{sneaker.url}}">
+                <img  class="mx-auto" src="{{sneaker.storeimage.url}}" alt="store"
+              style="text-align: center; height: 100px"/>
+            </a>
+            {% endif %}
+            <hr>
+            <p>Buy from reseller(after market price)</p>
+            <a  href="{{sneaker.resellerlink}}">{{sneaker.reseller}}</a>
+
+        <div class="mx-auto" style="width: 60%; text-align: left">
+        </div>
+
+
+    </div>
+{% endblock %}
+
+{% block scriptBlock %}
+{#    <script type="text/javascript" src="{% static  "/viewall/viewall.js" %}"></script>#}
+{% endblock %}
+
+</body>
+</html>

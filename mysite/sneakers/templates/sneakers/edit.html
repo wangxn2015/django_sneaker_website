@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Edit the sneaker</title>
+
+
+</head>
+<body>
+
+{% block content %}
+
+    <h3 id="theTitle" class="h3  font-weight-normal mx-auto pt-2"
+            style="text-align: center">Edit the Sneaker</h3>
+    <div class="mx-auto" style="text-align: left; " >
+        <a href="{% url 'users' %}">Return to User Profile</a>
+        <div style="color: crimson; font-family:fantasy">{{ message }}</div><br>
+    </div>
+    <div style="height: 800px; text-align: left;" >
+        <form action="{{request.path}}" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ id }}">
+            <p>Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sneakerform.title}}</p>
+            <p>Pic：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sneakerform.pic}}</p>
+            <p>Content：</p>
+            <div style="height: 400px; width: 400px; text-align: left">{{sneakerform.content}}</div>
+            <table>
+                <tr>
+                    <td>ReleaseDate：</td>
+                    <td>{{sneakerform.sneakerReleaseDate}}</td>
+                </tr>
+{#                <tr>#}
+{#                    <td>PublishDate:</td>#}
+{#                    <td>{{sneakerform.publishDate}}</td>#}
+{#                </tr>#}
+                <tr>
+                    <td>Where to buy:</td>
+                    <td>{{sneakerform.store}}</td>
+                </tr>
+                <tr>
+                    <td>Store Pic:</td>
+                    <td>{{sneakerform.storepic}}</td>
+                </tr>
+                <tr>
+                    <td>URL：</td>
+                    <td>{{sneakerform.url}}</td>
+                </tr>
+                <tr>
+                    <td>Color：</td>
+                    <td>{{sneakerform.color}}</td>
+                </tr>
+                <tr>
+                    <td>Price：</td>
+                    <td>{{sneakerform.price}}</td>
+                </tr>
+                <tr>
+                    <td>Reseller：</td>
+                    <td>{{sneakerform.reseller}}</td>
+                </tr>
+                <tr>
+                    <td>Reseller Link：</td>
+                    <td>{{sneakerform.resellerlink}}</td>
+                </tr>
+            </table>
+
+            <p><input type="submit" value="Update"></p><br>
+        </form>
+
+
+
+
+    </div>
+{% endblock %}
+
+
+{% block scriptBlock %}
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{% static  "/sneakers/new.js" %}"></script>
+{% endblock %}
+</body>
+</html>

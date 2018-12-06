@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>ViewAll</title>
+</head>
+<body>
+
+{% block content %}
+
+    <h3 id="theTitle" class="h3  font-weight-normal mx-auto pt-2"
+            style="width: 20%;">ViewAll Page</h3>
+
+    <div style="height: 800px">fill 800px</div>
+{% endblock %}
+
+{% block scriptBlock %}
+    <script type="text/javascript" src="{% static  "/viewall/viewall.js" %}"></script>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+    <span>province</span><select id="province" onchange="func1(this)"></select>
+
+    <span>city</span><select id="city"></select>
+
+    <p id="pp1">this is p1</p>
+    <p id="pp2">this is p2</p>
+
+    <script>
+
+
+
+        var ele = document.getElementById("pp2");
+        ele.innerHTML="this is a para";
+
+
+        data = {pro: 'area', hebei:["a1","a2"], beijing:["a3","a4"], shandong:["a5","a6"]};
+        var pro = document.getElementById("province");
+        var city = document.getElementById("city");
+        for ( var i in data){
+            var option_pro = document.createElement("option");
+            option_pro.innerHTML = i;
+            pro.appendChild(option_pro);
+        }
+
+
+        function func1(self) {
+
+            var proo = (self.options[self.selectedIndex]).innerHTML;
+
+            var opts = city.children;
+            for(var i=0;i<opts.length;i++){
+                city.removeChild(opts[i]);
+                i--;
+            }
+
+            for( var j in data[proo])
+            {
+                var option_city = document.createElement("option");
+                option_city.innerHTML = data[proo][j];
+                city.appendChild(option_city);
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

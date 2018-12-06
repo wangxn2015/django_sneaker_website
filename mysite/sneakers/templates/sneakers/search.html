@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>ViewAll</title>
+</head>
+<body>
+
+{% block content %}
+
+    <p style="text-align: center; font-size:30px">Search Result</p>
+    <hr>
+        {% if sneaker_list %}
+            <div class="row">
+                {% for s in sneaker_list %}
+                    <div class="col-md-4">
+                        <div>
+                            <a href="/sneakers/{{ s.sneakerID }}/"><img class="img-fluid" src="/media/{{ s.image }}" alt="shoes image" /></a>
+                        </div>
+                        <p class="text-center mb-0">
+                            <a href="/sneakers/{{ s.sneakerID }}/" title="{{ s.title }}">{{ s.title }}</a>
+                        </p>
+                        <p class="text-center mb-0">
+                            <a>{{ s.sneakerReleaseDate }}</a>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No results.</p>
+        {% endif %}
+{% endblock %}
+
+{% block scriptBlock %}
+{#    <script type="text/javascript" src="{% static  "/viewall/viewall.js" %}"></script>#}
+{% endblock %}
+
+</body>
+</html>

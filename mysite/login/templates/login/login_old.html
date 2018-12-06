@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MyTitle</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}">
+
+</head>
+<body>
+    <h1>h1 headline</h1>
+    <p class="p123">Hi, this is Sleepless login web page</p>
+    <img id="p1"  src="{% static "login/images/shoes.png" %}" alt="shoes image">
+
+
+<hr>
+    <form action="/login" method="post">
+        <p>name<input type="text" name="username"</p>
+        <p>email<input type="text" name="email"</p>
+        <p><input type="submit" value="submit"</p>
+    </form>
+    <hr>
+        <h1>data show</h1>
+            <table border="1">
+                <tr>
+                    <td>username</td>
+                    <td>email</td>
+                </tr>
+                {% for i in user_list %}
+                <tr>
+                    <td>{{i.username}}</td>
+                    <td>{{i.email}}</td>
+                </tr>
+
+                {% endfor %}
+            </table>
+    </hr>
+    <form>
+        <p>male&nbsp;&nbsp;<input type="radio" name="sex"></p>
+        <p>female<input type="radio" name="sex"></p>
+        <p>upload<input type="file" name="uploadfile"</p>
+    </form>
+
+</body>
+</html>

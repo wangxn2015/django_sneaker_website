@@ -1,0 +1,135 @@
+
+    * {
+        margin:0;
+        padding: 0;
+    }
+    h1,h3 {
+        text-align: center;
+        background-color: white;
+        font-family:"Calibri";
+        width: 900px;
+        padding: 10px 0;
+        margin: 0 auto;
+    }
+
+    #nav {
+        margin: 0 auto;
+        width: 900px;
+        height:40px;
+        background-color: #f3f3f3;
+        border: 1px solid #e7e7e7;
+
+    }
+    #left_nav  {
+        width: 650px;
+    }
+    #right_nav  {
+
+    }
+
+    #left_nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f3f3f3;
+        float: left;
+
+    }
+
+    #left_nav li {
+        float: left;
+
+    }
+
+    #left_nav li a {
+        display: block;
+        color: #666;
+        text-align: center;
+        padding: 10px 30px;
+        text-decoration: none;
+        text-transform:uppercase;
+        font-family: Calibri;
+
+    }
+
+    #left_nav li a:hover:not(.active) {
+        background-color: #ddd;
+        }
+
+    #left_nav li a.active {
+        color: white;
+        background-color: #4CAF50;
+    }
+
+
+    #right_nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f3f3f3;
+        height:40px;
+        float: right;
+
+    }
+
+    #right_nav li {
+        float: right;
+
+    }
+
+    #right_nav li a {
+        display: block;
+        color: #666;
+        text-align: center;
+        padding: 10px 10px;
+        text-decoration: none;
+        font-family: Calibri;
+    }
+
+    #right_nav li a:hover:not(.active) {
+        background-color: #ddd;
+        }
+
+
+    .pic_area {
+        margin: 0 auto;
+        width: 900px;
+        height: 500px;
+        position: relative;
+    }
+
+    .img li {
+        list-style-type: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+    .pic_area li {
+
+    }
+    .number {
+        position: absolute;
+        bottom: 20px;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
+    .number li {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background-color: grey;
+        color: #ffffff;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 50%;
+        margin: 0;
+    }
+    .current_pic {
+        background-color: orange!important;
+        color: white!important;
+    }
+

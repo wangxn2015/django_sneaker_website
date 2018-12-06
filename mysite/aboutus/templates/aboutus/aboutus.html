@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>AboutUs</title>
+</head>
+<body>
+
+{% block content %}
+
+    <h3 id="theTitle" class="h3  font-weight-normal mx-auto pt-2"
+            style="text-align: center">Sleepless Team</h3>
+    <p style="text-align: center">Do not sleep on your sneaker dream!</p>
+    <div class="mx-auto" style="text-align: center" >
+        <img  src="{% static "aboutus/images/aboutus.png" %}"
+             alt=""   />
+    </div>
+    <div style="height: 800px; text-align: center" >
+        Jimmy Photirath<br>
+        Justin Xiaonan Wang<br>
+        Andy Anh Duc<br>
+        Weicheng Liu<br>
+        Boming Ma<br>
+        <br>
+        <b>We are Sleepless</b><br>
+        </div>
+{% endblock %}
+
+
+{% block scriptBlock %}
+    <script type="text/javascript" src="{% static  "/aboutus/aboutus.js" %}"></script>
+{% endblock %}
+</body>
+</html>

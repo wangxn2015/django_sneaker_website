@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>ViewAll</title>
+</head>
+<body>
+
+{% block content %}
+
+{#    <h3 id="theTitle" class="h3  font-weight-normal mx-auto pt-1"#}
+{#            style="width: 500px;">Do not sleep on upcoming releases</h3>#}
+    <hr>
+    <div class="row">
+<!--        <tr class='list-header'>
+            <td width='20%' ><b>ID</b></td>
+            <td width='50%'><b>SneakerName</b></td>
+        </tr> -->
+        <br>
+        {% for sneaker in sneaker_list %}
+            <div class="col-md-4">
+                        <div>
+                            <a href="/sneakers/{{ sneaker.sneakerID }}/"><img class="img-fluid" src="/media/{{ sneaker.image }}" alt="shoes image" /></a>
+                        </div>
+                        <p class="text-center mb-0">
+                            <a href="/sneakers/{{ sneaker.sneakerID }}/" title="{{ sneaker.title }}">{{ sneaker.title }}</a>
+                        </p>
+                        <p class="text-center mb-0">
+                            <a>Release Date:{{ sneaker.sneakerReleaseDate }}</a>
+                        </p>
+                    </div>
+<!--            <tr>
+                <td width='20%'>{{sneaker.sneakerID}}</td>
+                <td width='50%'><a href="{% url 'sneakers' %}{{sneaker.sneakerID}}">{{sneaker.title}}</a></td>
+            </tr> -->
+{#            <a href="{% url 'blogapp:editblog' %}?blogid={{blog.id}}">修改</a>|#}
+{#            <a href="{% url 'blogapp:delblog' %}?blogid={{blog.id}}">删除</a><br>#}
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+{% block scriptBlock %}
+    <script type="text/javascript" src="{% static  "/upcoming/upcoming.js" %}"></script>
+{% endblock %}
+
+</body>
+</html>
